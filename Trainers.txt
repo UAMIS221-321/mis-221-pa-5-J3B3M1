@@ -1,0 +1,6 @@
+0001#Chase Callahan#University Blvd#ccallahan@crimson.ua.edu#True
+0002#Wagner Osborne#5th Avenue#wosborne@crimson.ua.edu#True
+0003#Makayla Townsend#10th Avenue#mtownsend@crimson.ua.edu#True
+0004#Kyle Knudson#Homewood Drive#kknudson@crimson.ua.edu#True
+0005#Jaehee Kim#Creek Road#jkim@crimson.ua.edu#True
+0006#Mattie Bryant#Jack Warner#mbryant@crimson.ua.edu#True
