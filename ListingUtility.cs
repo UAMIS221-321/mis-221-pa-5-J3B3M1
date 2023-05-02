@@ -1,40 +1,117 @@
+using System.Globalization;
 namespace mis_221_pa_5_J3B3M1
 {
     public class ListingUtility
     {
         private Listing[] listings;
 
-        public ListingUtility(Listing[] listings)
+        private Trainer[] trainers;
+
+        public ListingUtility(Listing[] listings, Trainer[] trainers)
         {
             this.listings = listings;
+            this.trainers = trainers;
         }
 
         public void AddListing()
         {
-            System.Console.WriteLine("Enter ListingID:");
+            int input;
+            do
+            {
+                System.Console.WriteLine("Enter ListingID:(****)");
+
+                if(int.TryParse(Console.ReadLine(), out input) && input.ToString().Length == 4)
+                {
+                    break;
+                }
+                else
+                {
+                    System.Console.WriteLine("Invalid Input...Enter 4 digit ListingID");
+                }
+            }
+            while(true);
+            
             Listing myListing = new Listing();
-            myListing.SetListingID(int.Parse(Console.ReadLine()));
-            System.Console.WriteLine("Enter Trainer Name:");
-            myListing.SetTrainerName(Console.ReadLine());
-            System.Console.WriteLine("Enter Session Date:(mm/dd/yyyy)");
-            myListing.SetSessionDate(Console.ReadLine());
-            System.Console.WriteLine("Enter Session Cost:(00.00)");
-            myListing.SetSessionCost(double.Parse(Console.ReadLine()));
-            System.Console.WriteLine("Is this booking availible?\n1.Yes 2.No");
-            int response = int.Parse(Console.ReadLine());
-            if(response == 1)
+            myListing.SetListingID(input);
+            
+
+            int searchVal;
+            int foundIndex;
+            do
             {
-                myListing.SetAvailability(true);
+                System.Console.WriteLine("Enter TrainerID:");
+                searchVal = int.Parse(Console.ReadLine());
+                foundIndex = FindTrainer(searchVal);
+                if(foundIndex != -1)
+                {
+                    myListing.SetTrainerName(trainers[foundIndex].GetTrainerName());
+                }
+                else
+                {
+                    System.Console.WriteLine("Trainer Not Found");
+                }
             }
-            else if(response == 2)
+            while(foundIndex == -1);
+
+            DateTime date;
+            string userInput;
+            do
             {
-                myListing.SetAvailability(false);
+                System.Console.WriteLine("Enter Session Date:(mm/dd/yyyy)");
+                userInput = Console.ReadLine();
+
+                if(!DateTime.TryParseExact(userInput, "mm/dd/yyyy", CultureInfo.InvariantCulture,DateTimeStyles.None, out date))
+                {
+                    System.Console.WriteLine("Invalid Date Format");
+                }
+                else
+                {
+                    myListing.SetSessionDate(userInput);
+                }
             }
+            while(!DateTime.TryParseExact(userInput, "mm/dd/yyyy", CultureInfo.InvariantCulture,DateTimeStyles.None, out date));
+            
+            double userOption;
+            do
+            {    
+                System.Console.WriteLine("Enter Session Cost:(00.00)");
+                if(double.TryParse(Console.ReadLine(), out userOption))
+                {
+                    break;
+                }
+                else
+                {
+                    System.Console.WriteLine("Invalid Input... Use Correct Format");
+                }
+            }
+            while(true);
+
+            int response;
+            do
+            {
+                System.Console.WriteLine("Is this listing availible?\n1.Yes 2.No");
+                response = int.Parse(Console.ReadLine());
+                
+                if(response == 1)
+                {
+                    myListing.SetAvailability(true);
+                }
+                else if(response == 2)
+                {
+                    myListing.SetAvailability(false);
+                }
+                else
+                {
+                    System.Console.WriteLine("Invalid Input... Try Again");
+                }
+            }
+            while(response != 1 || response != 2);
 
             listings[Listing.GetCount()] = myListing;
             Listing.IncCount();
 
             Save();
+            
 
         }
 
@@ -62,6 +139,18 @@ namespace mis_221_pa_5_J3B3M1
             return -1;
         }
 
+        public int FindTrainer(int searchVal)
+        {
+            for(int i = 0; i < Trainer.GetCount();i++)
+            {
+                if(trainers[i].GetTrainerID() == searchVal)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         public void UpdateListing()
         {
             System.Console.WriteLine("What is the ID of the listing you are trying to find?");
@@ -70,24 +159,92 @@ namespace mis_221_pa_5_J3B3M1
 
             if(foundIndex != -1)
             {
-                System.Console.WriteLine("Enter the listing ID:");
-                listings[foundIndex].SetListingID(int.Parse(Console.ReadLine()));
-                System.Console.WriteLine("Enter the trainer name:");
-                listings[foundIndex].SetTrainerName(Console.ReadLine());
-                System.Console.WriteLine("Enter session date:(mm/dd)");
-                listings[foundIndex].SetSessionDate(Console.ReadLine());
-                System.Console.WriteLine("Enter session cost:(0.00)");
-                listings[foundIndex].SetSessionCost(double.Parse(Console.ReadLine()));
-                System.Console.WriteLine("Is this session still availible?\n1.Yes 2.No");
-                int response = int.Parse(Console.ReadLine());
-                if(response == 1)
+               int input;
+                do
                 {
-                    listings[foundIndex].SetAvailability(true);
+                    System.Console.WriteLine("Enter ListingID:(****)");
+
+                    if(int.TryParse(Console.ReadLine(), out input) && input.ToString().Length == 4)
+                    {
+                        listings[foundIndex].SetListingID(input);
+                        break;
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Invalid Input...Enter 4 digit ListingID");
+                    }
                 }
-                else if(response == 2)
+                while(true);
+                int searchValOne;
+                int foundIndexOne;
+                do
                 {
-                    listings[foundIndex].SetAvailability(false);
+                    System.Console.WriteLine("Enter TrainerID:");
+                    searchValOne = int.Parse(Console.ReadLine());
+                    foundIndexOne = FindTrainer(searchValOne);
+                    if(foundIndexOne != -1)
+                    {
+                        listings[foundIndex].SetTrainerName(trainers[foundIndexOne].GetTrainerName());
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Trainer Not Found");
+                    }
                 }
+                while(foundIndex == -1);
+                DateTime date;
+                string userInput;
+                do
+                {
+                    System.Console.WriteLine("Enter Session Date:(mm/dd/yyyy)");
+                    userInput = Console.ReadLine();
+
+                    if(!DateTime.TryParseExact(userInput, "mm/dd/yyyy", CultureInfo.InvariantCulture,DateTimeStyles.None, out date))
+                    {
+                        System.Console.WriteLine("Invalid Date Format");
+                    }
+                    else
+                    {
+                        listings[foundIndex].SetSessionDate(userInput);
+                    }
+                }
+                while(!DateTime.TryParseExact(userInput, "mm/dd/yyyy", CultureInfo.InvariantCulture,DateTimeStyles.None, out date));
+
+                double userOption;
+                do
+                {    
+                    System.Console.WriteLine("Enter Session Cost:(00.00)");
+                    if(double.TryParse(Console.ReadLine(), out userOption))
+                    {
+                        listings[foundIndex].SetSessionCost(userOption);
+                        break;
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Invalid Input... Use Correct Format");
+                    }
+                }
+                while(true);
+                int response;
+                do
+                {
+                    System.Console.WriteLine("Is this listing availible?\n1.Yes 2.No");
+                    response = int.Parse(Console.ReadLine());
+                    
+                    if(response == 1)
+                    {
+                        listings[foundIndex].SetAvailability(true);
+                    }
+                    else if(response == 2)
+                    {
+                        listings[foundIndex].SetAvailability(false);
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Invalid Input... Try Again");
+                    }
+                }
+                while(response != 1 || response != 2);
 
                 Save();
             }

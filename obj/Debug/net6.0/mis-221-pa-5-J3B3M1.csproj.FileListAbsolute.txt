@@ -1,0 +1,15 @@
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/mis-221-pa-5-J3B3M1.csproj.AssemblyReference.cache
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/mis-221-pa-5-J3B3M1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/mis-221-pa-5-J3B3M1.AssemblyInfoInputs.cache
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/mis-221-pa-5-J3B3M1.AssemblyInfo.cs
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/mis-221-pa-5-J3B3M1.csproj.CoreCompileInputs.cache
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/bin/Debug/net6.0/mis-221-pa-5-J3B3M1
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/bin/Debug/net6.0/mis-221-pa-5-J3B3M1.deps.json
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/bin/Debug/net6.0/mis-221-pa-5-J3B3M1.runtimeconfig.json
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/bin/Debug/net6.0/mis-221-pa-5-J3B3M1.dll
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/bin/Debug/net6.0/mis-221-pa-5-J3B3M1.pdb
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/mis-221-pa-5-J3B3M1.dll
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/refint/mis-221-pa-5-J3B3M1.dll
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/mis-221-pa-5-J3B3M1.pdb
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/mis-221-pa-5-J3B3M1.genruntimeconfig.cache
+/Users/jerelmitchell/Documents/MIS221/mis-221-pa-5-J3B3M1/obj/Debug/net6.0/ref/mis-221-pa-5-J3B3M1.dll

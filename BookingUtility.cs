@@ -116,5 +116,17 @@ namespace mis_221_pa_5_J3B3M1
                 }
             }  
         }
+
+        public void PrintAllBookings()
+        {
+            for(int i = 0;i < Booking.GetCount();i++)
+            {
+                if(bookings[i].GetStatus() == true)
+                {
+                    System.Console.WriteLine(bookings[i].ToString());
+                }
+                
+            }
+        }
     }
 }

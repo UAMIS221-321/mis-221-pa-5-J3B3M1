@@ -36,6 +36,7 @@ namespace mis_221_pa_5_J3B3M1
 
             Save();
 
+            System.Console.WriteLine($"Trainer {myTrainer.GetTrainerName()} has been created!");
         }
 
         private void Save()
@@ -123,6 +124,35 @@ namespace mis_221_pa_5_J3B3M1
 
                 
             }
+            else
+            {
+                System.Console.WriteLine("Trainer not found!");
+            }
+        }
+
+        public void PrintAllTrainers()
+        {
+            for(int i = 0; i < Trainer.GetCount();i++)
+            {
+                System.Console.WriteLine(trainers[i].GetTrainerName());
+            }
+
+        }
+
+        public void GetAllTrainersFromFile()
+        {
+            StreamReader infile = new StreamReader("Trainers.txt");
+
+            Trainer.SetCount(0);
+            string line = infile.ReadLine();
+            while(line != null)
+            {
+                string[] temp = line.Split("#");
+                trainers[Trainer.GetCount()] = new Trainer(int.Parse(temp[0]),temp[1],temp[2],temp[3],bool.Parse(temp[4]));
+                Trainer.IncCount();
+                line = infile.ReadLine();
+            }
+            infile.Close();
         }
     }
 }
