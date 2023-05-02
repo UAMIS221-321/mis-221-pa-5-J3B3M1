@@ -9,6 +9,9 @@ BookingUtility bookingUtility = new BookingUtility(bookings);
 Listing[] listings = new Listing[MAX];
 Listing listing = new Listing();
 
+Reports[] reports = new Reports[MAX];
+Reports report = new Reports(bookings);
+
 
 Trainer[] trainers = new Trainer[MAX];
 Trainer trainer = new Trainer();
@@ -279,7 +282,7 @@ static void ViewReports()
 
     if(userChoice == 1)
     {
-        CustomerSession();
+        
     }
     else if(userChoice == 2)
     {
@@ -291,11 +294,7 @@ static void ViewReports()
     }
 }
 
-static void CustomerSession()
-{
-    
 
-}
 
 static void HistoricalCustomerSession()
 {
